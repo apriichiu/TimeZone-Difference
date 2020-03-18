@@ -4,7 +4,7 @@ Date.prototype.addHours = function(h) {
 }
 
 function FormattedDate(props) {
-  return <h2>It is {props.date.toLocaleTimeString()}.</h2>;
+  return <h2 className="formattedDate" >It is {props.date.toLocaleTimeString()}.</h2>;
 }
 
 function setCityTime( city ) {
@@ -62,8 +62,8 @@ class Clock extends React.Component {
   render() {
     return (
       <div class="Clock">
-        <h1>Hello, {this.props.city}!</h1>
-        <FormattedDate date={setCityTime(this.props.city)}/>
+        <h1 className="hellocity" >Hello, {this.props.city}!</h1>
+        <FormattedDate className="actualtime" date={setCityTime(this.props.city)}/>
       </div>
     );
   }
@@ -99,10 +99,10 @@ function findTimezoneDifference(c1, c2 ){
   return Math.floor(((Math.abs(t2 - t1))% 86400000) / 3600000);
 }
 function Title(props) {
-  return <h1>Time Difference Calculator</h1>
+  return <h1 className="title">Time Difference Calculator</h1><br/>
 }
 function Diff(props) {
-  return <h2>The hours difference between {props.c1} and {props.c2} is: <br/><br/><span id="diffresult">{findTimezoneDifference(props.c1, props.c2)} hours</span></h2>
+  return <h2 className="difference">The hours difference between <br /><span className="city1">{props.c1}</span>&nbsp;&nbsp;and&nbsp;&nbsp;<span className="city2">{props.c2}</span>&nbsp;&nbsp;is: <br/><br/><span id="diffresult">{findTimezoneDifference(props.c1, props.c2)} hours</span></h2>
 }
 
 class App extends React.Component {
@@ -123,20 +123,30 @@ class App extends React.Component {
 
     return(
     <div>
+      <div className="topPanel">
       <Title />
+      </div>
+      <div className="leftPanel">
       <Diff c1={this.state.c1} c2={this.state.c2}/>
+      </div>
+      <div className="rightPanel">
+      <div className="clockPanel">
       <Clock city={this.state.c1} onCityChange={this.state.c1} />
-          <form>
+      <form>
           <label> City:
           <input type="text" value={this.state.c1} onChange={this.handleChangeC1} />
           </label>
      </form>
+     </div>
+     <div className="clockPanel">
       <Clock city={this.state.c2} />
-            <form>
+      <form>
           <label> City:
           <input type="text" value={this.state.c2} onChange={this.handleChangeC2} />
           </label>
      </form>
+     </div>
+     </div>
     </div>
       );
   }

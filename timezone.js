@@ -14,7 +14,7 @@ Date.prototype.addHours = function (h) {
 function FormattedDate(props) {
   return React.createElement(
     'h2',
-    null,
+    { className: 'formattedDate' },
     'It is ',
     props.date.toLocaleTimeString(),
     '.'
@@ -100,12 +100,12 @@ var Clock = function (_React$Component) {
         { 'class': 'Clock' },
         React.createElement(
           'h1',
-          null,
+          { className: 'hellocity' },
           'Hello, ',
           this.props.city,
           '!'
         ),
-        React.createElement(FormattedDate, { date: setCityTime(this.props.city) })
+        React.createElement(FormattedDate, { className: 'actualtime', date: setCityTime(this.props.city) })
       );
     }
   }]);
@@ -160,19 +160,28 @@ function findTimezoneDifference(c1, c2) {
 function Title(props) {
   return React.createElement(
     'h1',
-    null,
+    { className: 'title' },
     'Time Difference Calculator'
   );
 }
 function Diff(props) {
   return React.createElement(
     'h2',
-    null,
+    { className: 'difference' },
     'The hours difference between ',
-    props.c1,
-    ' and ',
-    props.c2,
-    ' is: ',
+    React.createElement('br', null),
+    React.createElement(
+      'span',
+      { className: 'city1' },
+      props.c1
+    ),
+    '\xA0\xA0and\xA0\xA0',
+    React.createElement(
+      'span',
+      { className: 'city2' },
+      props.c2
+    ),
+    '\xA0\xA0is: ',
     React.createElement('br', null),
     React.createElement('br', null),
     React.createElement(
@@ -215,28 +224,48 @@ var App = function (_React$Component3) {
       return React.createElement(
         'div',
         null,
-        React.createElement(Title, null),
-        React.createElement(Diff, { c1: this.state.c1, c2: this.state.c2 }),
-        React.createElement(Clock, { city: this.state.c1, onCityChange: this.state.c1 }),
         React.createElement(
-          'form',
-          null,
-          React.createElement(
-            'label',
-            null,
-            ' City:',
-            React.createElement('input', { type: 'text', value: this.state.c1, onChange: this.handleChangeC1 })
-          )
+          'div',
+          { className: 'topPanel' },
+          React.createElement(Title, null)
         ),
-        React.createElement(Clock, { city: this.state.c2 }),
         React.createElement(
-          'form',
-          null,
+          'div',
+          { className: 'leftPanel' },
+          React.createElement(Diff, { c1: this.state.c1, c2: this.state.c2 })
+        ),
+        React.createElement(
+          'div',
+          { className: 'rightPanel' },
           React.createElement(
-            'label',
-            null,
-            ' City:',
-            React.createElement('input', { type: 'text', value: this.state.c2, onChange: this.handleChangeC2 })
+            'div',
+            { className: 'clockPanel' },
+            React.createElement(Clock, { city: this.state.c1, onCityChange: this.state.c1 }),
+            React.createElement(
+              'form',
+              null,
+              React.createElement(
+                'label',
+                null,
+                ' City:',
+                React.createElement('input', { type: 'text', value: this.state.c1, onChange: this.handleChangeC1 })
+              )
+            )
+          ),
+          React.createElement(
+            'div',
+            { className: 'clockPanel' },
+            React.createElement(Clock, { city: this.state.c2 }),
+            React.createElement(
+              'form',
+              null,
+              React.createElement(
+                'label',
+                null,
+                ' City:',
+                React.createElement('input', { type: 'text', value: this.state.c2, onChange: this.handleChangeC2 })
+              )
+            )
           )
         )
       );
