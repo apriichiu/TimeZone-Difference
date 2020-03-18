@@ -1,0 +1,30 @@
+h1 {
+  font-family: Verdana
+}
+h2 {
+  font-family: Roboto
+}
+
+.Clock {
+  display: inline-block;
+  padding-right: 80px;
+  padding-left: 20px;
+}
+
+form {
+  font-family: Helvetica;
+  padding: 20px;
+  font-size: 20px;
+}
+
+input {
+  margin: 15px;
+  font-size: 25px;
+}
+
+#diffresult {
+  margin: 0 auto;
+  text-align: center;
+  display: inline-block;
+  padding: 50px 200px 50px 200px
+}
