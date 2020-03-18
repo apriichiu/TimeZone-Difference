@@ -1,0 +1,20 @@
+{
+  "name": "TimeZone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "timezone.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apriichiu/TimeZone-Difference.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apriichiu/TimeZone-Difference/issues"
+  },
+  "homepage": "https://github.com/apriichiu/TimeZone-Difference#readme"
+}
