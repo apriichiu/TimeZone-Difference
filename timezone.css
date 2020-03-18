@@ -4,11 +4,11 @@ body {
   color: white;
 }
 h1 {
-  font-family: Roboto;
+  font-family: Arial;
 }
 h2 {
-  font-family: Helvetica;
-  font-size: 3em;
+  font-family: Arial;
+  font-size: 2em;
 }
 
 .topPanel {
@@ -39,19 +39,19 @@ h2 {
 .title {
   text-align: center;
   letter-spacing: 0.1em;
-  padding: 100px;
+  padding: 20px;
   font-size: 3.5em;
   color: white;
 }
 
 .difference{
-  font-family: Roboto;
+  font-family: Arial;
   text-align: center;
   color: #888888;
 }
 
 .city1, .city2 {
-  font-family: Candara;
+  font-family: Arial;
   font-size: 1.5em;
 }
 .hellocity {
@@ -73,7 +73,7 @@ h2 {
 }
 
 form {
-  font-family: Helvetica;
+  font-family: Arial;
   font-size: 2em;
 }
 
@@ -88,10 +88,9 @@ input {
 }
 
 #diffresult {
-  margin: 0 auto;
   text-align: center;
   display: inline-block;
-  padding: 50px 200px 50px 200px;
+  padding: 25x 200px 25px 200px;
   font-size: 2em;
   color: white;
 }
