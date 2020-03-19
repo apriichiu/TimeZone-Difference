@@ -21,27 +21,54 @@ function FormattedDate(props) {
   );
 }
 
-function setCityTime(city) {
-  var now = new Date();
+function getHours(city) {
   var hours = 0;
   switch (city) {
-    case 'Fremont':
-      hours = 0;break;
-    case 'New York':
-      hours = 3;break;
+    case 'Berlin':
+      hours = 8;break;
     case 'London':
       hours = 7;break;
+    case 'Moscow':
+      hours = 10;break;
+    case 'New York':
+      hours = 3;break;
+    case 'Shanghai':
+      hours = 15;break;
+    case 'Rome':
+      hours = 8;break;
+    case 'Sydney':
+      hours = 18;break;
+    case 'Hawaii':
+      hours = -2;break;
+    case 'Alaska':
+      hours = -1;break;
+    case 'San Francisco':
+      hours = 0;break;
+    case 'Los Angeles':
+      hours = 0;break;
+    case 'Salt Lake City':
+      hours = 1;break;
+    case 'Chicago':
+      hours = 2;break;
+    case 'Mumbai':
+      hours = 12.5;break;
+    case 'Paris':
+      hours = 8;break;
+    case 'Tokyo':
+      hours = 16;break;
+    case 'Singapore':
+      hours = 15;break;
     case 'Taiwan':
       hours = 15;break;
-    case 'India':
-      hours = 12.5;break;
-    case 'Africa':
-      hours = 9;break;
-    case 'Washington D.C.':
-      hours = 3;break;
     default:
       hours = 0;
   }
+  return hours;
+}
+
+function setCityTime(city) {
+  var now = new Date();
+  var hours = getHours(city);
   return now.addHours(hours);
 }
 
@@ -153,9 +180,9 @@ var CityInput = function (_React$Component2) {
 }(React.Component);
 
 function findTimezoneDifference(c1, c2) {
-  var t1 = setCityTime(c1);
-  var t2 = setCityTime(c2);
-  return Math.floor(Math.abs(t2 - t1) % 86400000 / 3600000);
+  var t1 = getHours(c1);
+  var t2 = getHours(c2);
+  return t1 - t2;
 }
 function Title(props) {
   return React.createElement(

@@ -1,10 +1,18 @@
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
 body {
   font-family: Arial, Helvetica, Roboto, Candara;
-  background-color: #212121;
+  background-color: black;
   color: white;
+  width: 100%;
 }
 h1 {
   font-family: Arial;
+  padding-bottom: 10px;
 }
 h2 {
   font-family: Arial;
@@ -13,41 +21,51 @@ h2 {
 
 .topPanel {
   display: block;
-  width: 100%;
   float:left;
+  background-color: #cccccc;
+  color: #727272;
+  padding-left: 50px;
+  width: 100%;
+  padding-top: 10px;
 }
 .leftPanel, .rightPanel{
-  display: inline-block;
-  width: 100%;
+  display: block;
   float: left;
   text-align: center;
+  width: 100%;
 }
 
-.leftPanel {
-  border-bottom: solid black;
+.leftPanel{
+    background-image: linear-gradient(#789d76, black);
+}
+
+.rightPanel{
+    padding-bottom: 100px;
 }
 .clockPanel {
   border-left-style: solid;
   margin-top: 80px;
-  text-align: left;
-  padding-left: 80px;
-  margin-left: 10px;
   /*background-color: #5a7c86;*/
   color: #888888;
+  width: 30%;
+  margin-left: 50px;
+  padding-left:120px;
+  text-align: left;
+  display: inline-block;
+  margin-right: 50px;
 }
 
-.title {
-  text-align: center;
-  letter-spacing: 0.1em;
-  padding: 20px;
-  font-size: 3.5em;
-  color: white;
+@media screen (min-width: 500px) {
+  .clockPanel{
+    display: block;
+  }
 }
 
 .difference{
   font-family: Arial;
-  text-align: center;
-  color: #888888;
+  text-align:center;
+  color: white;
+  padding: 90px 30px 0px 30px;
 }
 
 .city1, .city2 {
@@ -58,8 +76,12 @@ h2 {
   margin-top: 0px;
   font-size: 3em;
   font-style: italic;
+  padding-bottom: 30px;
 }
 
+.title {
+  text-align:center;
+}
 .actualtime {
 
 }
@@ -69,28 +91,38 @@ h2 {
 }
 .Clock {
   display: inline-block;
-  text-align: left;
+  text-align:left;
+  width: 100%;
 }
 
 form {
+  display: block;
   font-family: Arial;
   font-size: 2em;
+  padding-top: 30px;
+  padding-bottom: 10px;
 }
 
 label {
-  font-size: 1.5em;
+  font-size: 1em;
+  padding-top: 15px;
+  color: white;
 }
 input {
-  margin: 15px;
   font-size: 1em;
   background-color: #6b6b6b;
   color: white;
+  height: 1.2em;
+  width: 300px;
+  margin-left: 30px;
+  margin-top: 50px;
+  padding: 5px;
 }
 
 #diffresult {
   text-align: center;
   display: inline-block;
-  padding: 25x 200px 25px 200px;
+  padding: 15x 200px 25px 200px;
   font-size: 2em;
   color: white;
 }

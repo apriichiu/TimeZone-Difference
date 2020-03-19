@@ -7,21 +7,37 @@ function FormattedDate(props) {
   return <h2 className="formattedDate" >It is {props.date.toLocaleTimeString()}.</h2>;
 }
 
-function setCityTime( city ) {
-    var now = new Date();
-    var hours = 0;
+function getHours( city ) {
+    var hours= 0;
     switch( city ) {
-      case 'Fremont' : hours = 0; break;
-      case 'New York' : hours = 3; break;
+      case 'Berlin' : hours = 8; break;
       case 'London' : hours = 7; break;
-      case 'Taiwan' : hours = 15; break;
-      case 'India'  : hours = 12.5; break;
-      case 'Africa' : hours = 9; break;
-      case 'Washington D.C.': hours = 3; break;
+      case 'Moscow' : hours = 10; break;
+      case 'New York' : hours = 3; break;
+      case 'Shanghai'  : hours = 15; break;
+      case 'Rome' : hours = 8; break;
+      case 'Sydney': hours = 18; break;
+      case 'Hawaii': hours = -2; break;
+      case 'Alaska': hours = -1; break;
+      case 'San Francisco': hours = 0; break;
+      case 'Los Angeles': hours = 0; break;
+      case 'Salt Lake City': hours = 1; break;
+      case 'Chicago': hours = 2; break;
+      case 'Mumbai': hours = 12.5; break;
+      case 'Paris': hours = 8; break;
+      case 'Tokyo': hours = 16; break;
+      case 'Singapore': hours = 15; break;
+      case 'Taiwan': hours = 15; break;
       default: hours = 0;
     }
-    return now.addHours(hours);
+    return hours;
   }
+
+function setCityTime (city){
+    var now = new Date();
+    var hours = getHours(city);
+    return now.addHours(hours);
+}
 
 class Clock extends React.Component {
   constructor(props) {
@@ -48,7 +64,6 @@ class Clock extends React.Component {
       date: new Date()
     });
   }
-
 
   handleChange(event) {
    this.setState({city: event.target.value});
@@ -94,12 +109,12 @@ class CityInput extends React.Component {
 }
 
 function findTimezoneDifference(c1, c2 ){
-  var t1 = setCityTime(c1);
-  var t2 = setCityTime(c2);
-  return Math.floor(((Math.abs(t2 - t1))% 86400000) / 3600000);
+  var t1 = getHours(c1);
+  var t2 = getHours(c2);
+  return t1 - t2;
 }
 function Title(props) {
-  return <h1 className="title">Time Difference Calculator</h1><br/>
+  return <h1 className="title">Time Difference Calculator</h1>
 }
 function Diff(props) {
   return <h2 className="difference">The hours difference between <br /><span className="city1">{props.c1}</span>&nbsp;&nbsp;and&nbsp;&nbsp;<span className="city2">{props.c2}</span>&nbsp;&nbsp;is: <br/><br/><span id="diffresult">{findTimezoneDifference(props.c1, props.c2)} hours</span></h2>
